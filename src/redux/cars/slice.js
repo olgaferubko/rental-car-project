@@ -1,9 +1,12 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { fetchCars } from "./operations";
+import { createSlice, isAnyOf } from "@reduxjs/toolkit";
+import { getAllCars, getCarsBrands, getCarDetails } from "./operations";
 
 const initialState = {
+  brands: [],
   cars: [],
   page: 1,
+  totalPage: null,
+  details: null,
   isLoading: false,
   error: null,
 };
@@ -12,30 +15,35 @@ const carsSlice = createSlice({
   name: "cars",
   initialState,
   reducers: {
-    resetCars: state => {
-      state.cars = [];
-      state.page = 1;
-    },
-    loadMore: state => {
+    incrementPage(state) {
       state.page += 1;
     },
   },
   extraReducers: builder => {
     builder
-      .addCase(fetchCars.pending, state => {
+      .addCase(getAllCars.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.cars = payload.cars;
+        state.totalPages = payload.totalPages;
+      })
+      .addCase(getCarsBrands.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.brands = payload;
+      })
+      .addCase(getCarDetails.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.details = payload;
+      })
+      .addMatcher(isAnyOf(getAllCars.pending, getCarsBrands.pending, getCarDetails.pending), state => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(fetchCars.fulfilled, (state, action) => {
+      .addMatcher(isAnyOf(getAllCars.rejected, getCarsBrands.rejected, getCarDetails.rejected), (state, { payload }) => {
         state.isLoading = false;
-        state.cars = [...state.cars, ...action.payload];
-      })
-      .addCase(fetchCars.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
+        state.error = payload || null;
       });
   },
 });
 
-export const { resetCars, loadMore } = carsSlice.actions;
-export default carsSlice.reducer;
+export const { incrementPage } = carsSlice.actions;
+export const carsReducer = carsSlice.reducer;

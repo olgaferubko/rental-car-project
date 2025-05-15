@@ -1,10 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import {
-  addToFavorite,
-  removeFromFavorite,
-} from "../../redux/favourites/slice";
-import { selectFavorites } from "../../redux/favourites/selectors";
+import { toggleFavourite } from "../../redux/favourites/slice";
+import { selectFavourites } from "../../redux/favourites/selectors";
 
 const CarItem = ({ car }) => {
   const {
@@ -23,17 +20,13 @@ const CarItem = ({ car }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const favorites = useSelector(selectFavorites);
-  const isFavorite = favorites.includes(id);
+  const favourites = useSelector(selectFavourites);
+  const isFavourite = favourites.some(fav => fav.id === car.id);
 
   const [, city, country] = address.split(",");
 
-  const toggleFavorite = () => {
-    if (isFavorite) {
-      dispatch(removeFromFavorite(id));
-    } else {
-      dispatch(addToFavorite(id));
-    }
+  const handleToggle = () => {
+    dispatch(toggleFavourite(car));
   };
 
   return (
@@ -52,8 +45,8 @@ const CarItem = ({ car }) => {
       </div>
 
       <div>
-        <button onClick={toggleFavorite}>
-          {isFavorite ? "Remove from Favorite" : "Add to Favorite"}
+        <button onClick={handleToggle}>
+          {isFavourite ? "Remove from Favourite" : "Add to Favourite"}
         </button>
         <button onClick={() => navigate(`/catalog/${id}`)}>
           Read more

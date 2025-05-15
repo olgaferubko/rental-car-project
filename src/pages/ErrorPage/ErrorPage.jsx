@@ -1,13 +1,11 @@
-import { Helmet } from "react-helmet-async";
-
-export default function ErrorPage() {
+const ErrorPage = () => {
     return (
         <div>
-            <Helmet>
                 <title>Error</title>
-            </Helmet>
             <h2>Page not found!</h2>
             <p>Please return to the home page</p>
         </div>
     );
-} 
+};
+
+export default ErrorPage;

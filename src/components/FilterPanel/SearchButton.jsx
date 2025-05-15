@@ -1,11 +1,12 @@
 import { useDispatch } from "react-redux";
-import { resetCars, fetchCars } from "../../redux/cars/operations";
+import { fetchCars } from "../../redux/cars/operations";
+import { clearCars } from "../../redux/cars/slice";
 
 const SearchButton = () => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(resetCars());
+    dispatch(clearCars());
     dispatch(fetchCars());
   };
 
