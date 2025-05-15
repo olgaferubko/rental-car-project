@@ -7,9 +7,7 @@ const Navigation = () => {
     return clsx(s.link, isActive && s.active);
   };
   return (
-    <header className={s.header}>
-      <img src="Logo.svg" alt="" />
-      <nav>
+      <nav className={s.navList}>
         <NavLink to="/" className={buildLinkClass}>
           Home
         </NavLink>
@@ -17,7 +15,6 @@ const Navigation = () => {
           Catalog
         </NavLink>
       </nav>
-    </header>
   );
 };
 

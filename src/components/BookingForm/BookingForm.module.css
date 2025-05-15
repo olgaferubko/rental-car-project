@@ -1,0 +1,23 @@
+.wrapper {
+    margin-top: 40px;
+    border: 1px solid #dadde1;
+    border-radius: 10px;
+    padding: 32px;
+}
+
+.heading {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #101828;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #8d929a;
+    margin-bottom: 24px;
+}
+
