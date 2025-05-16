@@ -1,59 +1,52 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { toggleFavourite } from "../../redux/favourites/slice";
-import { selectFavourites } from "../../redux/favourites/selectors";
+import { forwardRef } from 'react';
+import { IoIosHeartEmpty } from "react-icons/io";
+import { Link } from 'react-router-dom';
+import s from './CatalogCarItem.module.css';
 
-const CarItem = ({ car }) => {
+const CarCard = forwardRef(({ car }, ref) => {
   const {
     id,
-    img,
     brand,
     model,
     year,
-    rentalPrice,
-    address,
-    rentalCompany,
     type,
+    img,
+    rentalPrice,
+    rentalCompany,
     mileage,
+    address
   } = car;
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const favourites = useSelector(selectFavourites);
-  const isFavourite = favourites.some(fav => fav.id === car.id);
-
-  const [, city, country] = address.split(",");
-
-  const handleToggle = () => {
-    dispatch(toggleFavourite(car));
-  };
+  const location = address?.split(', ').slice(1).join(' | ');
 
   return (
-    <div>
-      <img src={img} alt={`${brand} ${model}`} width={300} />
+    <li className={s.card} ref={ref}>
+      <div className={s.imageWrapper}>
+        <img src={img} alt={`${brand} ${model}`} className={s.image} />
+        <button type="button" className={s.favBtn}>
+          <IoIosHeartEmpty className={s.disabled} />
+        </button>
+      </div>
 
-      <div>
-        <h3>
-          {brand} {model}, {year}
+      <div className={s.header}>
+        <h3 className={s.name}>
+          {brand} <span>{model}</span>, {year}
         </h3>
-        <p>Price: ${rentalPrice}</p>
-        <p>Location: {city}, {country}</p>
-        <p>Company: {rentalCompany}</p>
-        <p>Type: {type}</p>
-        <p>Mileage: {mileage.toLocaleString("en-US")} km</p>
+        <h3 className={s.name}>${rentalPrice}</h3>
       </div>
 
-      <div>
-        <button onClick={handleToggle}>
-          {isFavourite ? "Remove from Favourite" : "Add to Favourite"}
-        </button>
-        <button onClick={() => navigate(`/catalog/${id}`)}>
-          Read more
-        </button>
+      <div className={s.details}>
+        <span>{location}</span>
+        <span>{rentalCompany}</span>
+        <span>{type[0].toUpperCase() + type.slice(1)}</span>
+        <span>{mileage.toLocaleString('uk-UA')} km</span>
       </div>
-    </div>
+
+      <Link className={s.readMore} to={`/catalog/${id}`}>
+        Read more
+      </Link>
+    </li>
   );
-};
+});
 
-export default CarItem;
+export default CarCard;
