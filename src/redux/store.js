@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import carsReducer from "./cars/slice";
+import  { carsReducer } from "./cars/slice";
 import filtersReducer from "./filters/slice";
 import favouritesReducer from "./favourites/slice";
 

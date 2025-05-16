@@ -1,11 +1,11 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
-import { getAllCars, getCarsBrands, getCarDetails } from "./operations";
+import { getAllCars, getCarsBrands, getCarsDetails } from "./operations";
 
 const initialState = {
   brands: [],
   cars: [],
   page: 1,
-  totalPage: null,
+  totalPages: null,
   details: null,
   isLoading: false,
   error: null,
@@ -23,22 +23,26 @@ const carsSlice = createSlice({
     builder
       .addCase(getAllCars.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.cars = payload.cars;
         state.totalPages = payload.totalPages;
+        if (state.page === 1) {
+          state.cars = payload.cars;
+        } else {
+          state.cars = [...state.cars, ...payload.cars];
+        }
       })
       .addCase(getCarsBrands.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.brands = payload;
       })
-      .addCase(getCarDetails.fulfilled, (state, { payload }) => {
+      .addCase(getCarsDetails.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.details = payload;
       })
-      .addMatcher(isAnyOf(getAllCars.pending, getCarsBrands.pending, getCarDetails.pending), state => {
+      .addMatcher(isAnyOf(getAllCars.pending, getCarsBrands.pending, getCarsDetails.pending), state => {
         state.isLoading = true;
         state.error = null;
       })
-      .addMatcher(isAnyOf(getAllCars.rejected, getCarsBrands.rejected, getCarDetails.rejected), (state, { payload }) => {
+      .addMatcher(isAnyOf(getAllCars.rejected, getCarsBrands.rejected, getCarsDetails.rejected), (state, { payload }) => {
         state.isLoading = false;
         state.error = payload || null;
       });
