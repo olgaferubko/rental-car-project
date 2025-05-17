@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from '../../components/Loader/Loader';
 import CarCatalogList from "../../components/CarCatalogList/CarCatalogList";
-import s from "./CatalogPage.module.css";
 import { selectIsLoading, selectPage } from '../../redux/cars/selectors';
 import { getAllCars } from '../../redux/cars/operations';
 import Header from "../../components/Header/Header";
@@ -22,7 +21,7 @@ const CatalogPage = () => {
   }
 
   return (
-    <div className={s.container}>
+    <div>
       <Header />
       <CarCatalogList />
     </div>
