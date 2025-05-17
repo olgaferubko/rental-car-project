@@ -1,11 +1,13 @@
 .wrapper {
-    margin-top: 40px;
     border: 1px solid #dadde1;
     border-radius: 10px;
     padding: 32px;
+    width: 640px;
+    height: 488px;
 }
 
 .heading {
+    margin: 0;
     font-weight: 600;
     font-size: 20px;
     line-height: 1.2;
@@ -14,6 +16,7 @@
 }
 
 .subtitle {
+    margin: 0;
     font-weight: 500;
     font-size: 16px;
     line-height: 1.25;
@@ -21,3 +24,63 @@
     margin-bottom: 24px;
 }
 
+.formBox {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 576px;
+    align-items: center;
+}
+
+.inputGroup {
+    background: #f7f7f7;
+    border-radius: 12px;
+    padding: 12px 20px;
+}
+
+.inputGroup:last-of-type {
+    margin-bottom: 24px;
+}
+
+.input {
+    padding: 0;
+    width: 536px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #8d929a;
+    font-family: "Manrope", sans-serif;
+    border: none;
+    outline: none;
+    background: #f7f7f7;
+}
+
+.error {
+    font-size: 10px;
+}
+
+.textarea {
+    resize: none;
+}
+
+.button {
+    font-family: "Manrope", sans-serif;
+    border-radius: 12px;
+    padding: 12px 51px;
+    width: 156px;
+    height: 44px;
+    background: #3470ff;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #fff;
+    border: none;
+}
+
+.button:hover {
+    background: #0b44cd;
+}
+
+button:focus {
+  outline: none;
+}

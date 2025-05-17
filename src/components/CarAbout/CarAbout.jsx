@@ -9,15 +9,15 @@ const CarAbout = ({ car }) => {
                     {car.brand} {car.model}, {car.year}
                 </h2>
                 <p className={s.id} title={car.id}>
-                    {`Id: ${car.id.slice(0, 4)}...`}
+                    {`Id: ${car.id.slice(0, 4)}`}
                 </p>
             </div>
             <div className={s.textWrapper}>
                 <div className={s.addressWrapper}>
                     <IoLocationOutline />
                     <p className={s.address}>{car.address.split(', ').slice(1).join(', ')}</p>
+                    <p className={s.mileage}>Mileage: {car.mileage} km</p>
                 </div>
-                <p className={s.mileage}>Mileage: {car.mileage}</p>
             </div>
             <p className={s.price}>${car.rentalPrice}</p>
             <p className={s.description}>{car.description}</p>

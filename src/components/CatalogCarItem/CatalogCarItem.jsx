@@ -21,7 +21,7 @@ const CarCard = forwardRef(({ car }, ref) => {
 
   return (
     <li className={s.card} ref={ref}>
-      <div className={s.imageWrapper}>
+      <div>
         <img src={img} alt={`${brand} ${model}`} className={s.image} />
         <button type="button" className={s.favBtn}>
           <IoIosHeartEmpty className={s.disabled} />
@@ -30,16 +30,18 @@ const CarCard = forwardRef(({ car }, ref) => {
 
       <div className={s.header}>
         <h3 className={s.name}>
-          {brand} <span>{model}</span>, {year}
+          {brand} <span className={s.spanModel}>{model}</span>, {year}
         </h3>
         <h3 className={s.name}>${rentalPrice}</h3>
       </div>
 
       <div className={s.details}>
-        <span>{location}</span>
-        <span>{rentalCompany}</span>
-        <span>{type[0].toUpperCase() + type.slice(1)}</span>
-        <span>{mileage.toLocaleString('uk-UA')} km</span>
+        <span>{location} | </span>
+        <span>{rentalCompany} | </span>
+        <div className={s.typeMileage}>
+          <span >{type.charAt(0).toUpperCase() + type.slice(1).toLowerCase()} | </span>
+          <span>{mileage.toLocaleString('uk-UA')} km</span>
+        </div>
       </div>
 
       <Link className={s.readMore} to={`/catalog/${id}`}>

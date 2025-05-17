@@ -1,0 +1,77 @@
+.card {
+    flex: 0 0 calc((100% - 32px * 3) / 4);
+    box-sizing: border-box;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.image {
+    border-radius: 14px;
+    width: 276px;
+    height: 268px;
+    object-fit: cover;
+
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 11px;
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+.name {
+    margin: 0;
+    font-family: "Manrope", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #101828;
+}
+
+.spanModel {
+    color: #3470ff;
+}
+
+.details {
+    font-family: "Manrope", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.33333;
+    color: #8d929a;
+}
+
+.typeMileage {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.readMore {
+    font-family: "Manrope", sans-serif;
+    background: #3470ff;
+    border-radius: 12px;
+    width: 276px;
+    height: 44px;
+    border: none;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 28px;
+}
+
+.readMore:hover {
+    background: #0b44cd;
+    color: #fff;
+}
+
+.readMore:focus {
+    outline: none;
+}

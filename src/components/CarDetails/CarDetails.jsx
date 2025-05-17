@@ -26,7 +26,7 @@ const CarDetails = () => {
 
     return (
         <div className={s.wrapper}>
-            <div>
+            <div className={s.wrapperImgForm}>
                 <img className={s.image} src={car.img} alt={car.model} />
                 <BookingForm />
             </div>

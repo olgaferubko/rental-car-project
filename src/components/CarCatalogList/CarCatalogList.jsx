@@ -36,7 +36,7 @@ const CarCatalogList = () => {
   if (loading) return <Loader />;
 
   return (
-    <div>
+    <div className={s.wrapper}>
       <ul className={s.carsList}>
         {cars.map((car, index) => (
           <CarCard
