@@ -17,11 +17,8 @@ const filtersSlice = createSlice({
                 state.filters[key] = action.payload[key];
             });
     },
-    clearFilters(state) {
-            state.filters = { ...initialState.filters };
-        },
   },
 });
 
-export const { setFilters, clearFilters } = filtersSlice.actions;
+export const { setFilters } = filtersSlice.actions;
 export const filtersReducer = filtersSlice.reducer;

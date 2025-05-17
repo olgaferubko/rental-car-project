@@ -75,6 +75,7 @@
     line-height: 1.25;
     color: #fff;
     border: none;
+    cursor: pointer
 }
 
 .button:hover {

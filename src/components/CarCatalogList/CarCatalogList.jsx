@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import CarCard from '../CatalogCarItem/CatalogCarItem';
 import LoadMore from '../LoadMore/LoadMore';
 import Loader from '../Loader/Loader';
+import FilterPanel from '../FilterPanel/FilterPanel';
 import s from './CarCatalogList.module.css';
 
 import {
@@ -36,7 +37,9 @@ const CarCatalogList = () => {
   if (loading) return <Loader />;
 
   return (
+    
     <div className={s.wrapper}>
+      <FilterPanel />
       <ul className={s.carsList}>
         {cars.map((car, index) => (
           <CarCard

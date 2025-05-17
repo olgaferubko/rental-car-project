@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Loader from '../../components/Loader/Loader';
 import CarCatalogList from "../../components/CarCatalogList/CarCatalogList";
 import { selectIsLoading, selectPage } from '../../redux/cars/selectors';
-import { getAllCars } from '../../redux/cars/operations';
+import { getAllCars, getCarsBrands } from '../../redux/cars/operations';
 import Header from "../../components/Header/Header";
 
 
@@ -14,6 +14,7 @@ const CatalogPage = () => {
 
   useEffect(() => {
     dispatch(getAllCars(currentPage));
+    dispatch(getCarsBrands());
   }, [dispatch, currentPage]);
 
   if (isLoading) {

@@ -1,10 +1,10 @@
 .card {
-    flex: 0 0 calc((100% - 32px * 3) / 4);
-    box-sizing: border-box;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+  width: 276px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .image {
@@ -49,6 +49,7 @@
     margin-bottom: 4px;
 }
 
+
 .readMore {
     font-family: "Manrope", sans-serif;
     background: #3470ff;
@@ -65,6 +66,7 @@
     justify-content: center;
     flex-direction: row;
     margin-top: 28px;
+    cursor: pointer
 }
 
 .readMore:hover {
