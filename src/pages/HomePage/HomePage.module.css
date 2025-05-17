@@ -36,6 +36,10 @@
     background: #0b44cd;
 }
 
+.viewBtn:focus {
+    outline: none;
+}
+
 .bgWrapper {
     background-image: url("/car-bg.jpg");
     background-size: cover;

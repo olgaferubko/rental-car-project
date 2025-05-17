@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useEffect, useRef } from 'react';
 import toast from 'react-hot-toast';
-import CarCard from './CatalogCarItem/CatalogCarItem';
+import CarCard from '../CatalogCarItem/CatalogCarItem';
 import LoadMore from '../LoadMore/LoadMore';
 import Loader from '../Loader/Loader';
 import s from './CarCatalogList.module.css';

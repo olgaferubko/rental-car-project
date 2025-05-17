@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -20,8 +23,8 @@ a {
 
 
 body {
+  font-family: 'Manrope', sans-serif;
   margin: 0;
-
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
