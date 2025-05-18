@@ -16,3 +16,7 @@
     border: 1px solid #0b44cd;
 }
 
+.loadMoreBtn:focus {
+  outline: none;
+}
+

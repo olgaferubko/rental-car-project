@@ -1,11 +1,54 @@
 .card {
-  width: 276px;
-  box-sizing: border-box;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+    width: 276px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.favBtn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 2;
+    outline: none;   
+}
+
+
+.favBtn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+
+.heartIcon {
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.2s ease;
+}
+
+.heartIcon:hover {
+  color: #3470ff;
+}
+
+.heartIconActive {
+  font-size: 24px;
+  color: #3470ff;
+}
+
 
 .image {
     border-radius: 14px;

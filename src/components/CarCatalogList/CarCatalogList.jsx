@@ -13,7 +13,6 @@ import {
   selectIsLoading
 } from '../../redux/cars/selectors';
 
-
 const CarCatalogList = () => {
   const cars = useSelector(selectAllCars);
   const loading = useSelector(selectIsLoading);
@@ -37,16 +36,13 @@ const CarCatalogList = () => {
   if (loading) return <Loader />;
 
   return (
-    
     <div className={s.wrapper}>
       <FilterPanel />
       <ul className={s.carsList}>
         {cars.map((car, index) => (
-          <CarCard
-            key={car.id}
-            car={car}
-            ref={index === 0 ? topCardRef : null}
-          />
+          <li key={car.id} ref={index === 0 ? topCardRef : null}>
+            <CarCard car={car} />
+          </li>
         ))}
       </ul>
       <LoadMore />

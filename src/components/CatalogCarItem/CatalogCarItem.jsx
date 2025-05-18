@@ -1,9 +1,22 @@
-import { forwardRef } from 'react';
-import { IoIosHeartEmpty } from "react-icons/io";
+import React from 'react';
 import { Link } from 'react-router-dom';
 import s from './CatalogCarItem.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { IoIosHeartEmpty, IoIosHeart } from 'react-icons/io';
+import { toggleFavourite } from '../../redux/favourites/slice';
+import { selectFavourites } from '../../redux/favourites/selectors';
 
-const CarCard = forwardRef(({ car }, ref) => {
+
+const CarCard = ({ car }) => {
+  const dispatch = useDispatch();
+  const favorites = useSelector(selectFavourites);
+
+  const isFavorite = favorites.some(fav => fav.id === car.id);
+
+  const handleFavoriteClick = () => {
+    dispatch(toggleFavourite(car));
+  };
+
   const {
     id,
     brand,
@@ -20,11 +33,16 @@ const CarCard = forwardRef(({ car }, ref) => {
   const location = address?.split(', ').slice(1).join(' | ');
 
   return (
-    <li className={s.card} ref={ref}>
-      <div>
+    <div className={s.card}>
+      <div className={s.imageWrapper}>
         <img src={img} alt={`${brand} ${model}`} className={s.image} />
-        <button type="button" className={s.favBtn}>
-          <IoIosHeartEmpty className={s.disabled} />
+
+        <button type="button" className={s.favBtn} onClick={handleFavoriteClick}>
+          {isFavorite ? (
+            <IoIosHeart className={s.heartIconActive} />
+          ) : (
+            <IoIosHeartEmpty className={s.heartIcon} />
+          )}
         </button>
       </div>
 
@@ -39,7 +57,7 @@ const CarCard = forwardRef(({ car }, ref) => {
         <span>{location} | </span>
         <span>{rentalCompany} | </span>
         <div className={s.typeMileage}>
-          <span >{type.charAt(0).toUpperCase() + type.slice(1).toLowerCase()} | </span>
+          <span>{type.charAt(0).toUpperCase() + type.slice(1).toLowerCase()} | </span>
           <span>{mileage.toLocaleString('uk-UA')} km</span>
         </div>
       </div>
@@ -47,8 +65,8 @@ const CarCard = forwardRef(({ car }, ref) => {
       <Link className={s.readMore} to={`/catalog/${id}`}>
         Read more
       </Link>
-    </li>
+    </div>
   );
-});
+};
 
 export default CarCard;

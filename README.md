@@ -1,12 +1,49 @@
-# React + Vite
+RentalCar Frontend
+What is RentalCar?
+RentalCar is the frontend of a car rental web app designed to help users quickly find and book the perfect car. You can browse, filter by brand, price, and mileage, save favorites that stick around after refresh, and easily complete your booking.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Key Features:
 
-Currently, two official plugins are available:
+A modern homepage with an eye-catching banner and clear call-to-action
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Car catalog with filters to narrow down your search by brand, price, and mileage
 
-## Expanding the ESLint configuration
+Favorites system that keeps your selected cars saved even if you reload the page
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Detailed car pages featuring a booking form for seamless reservations
+
+“Load More” pagination for smooth browsing through the car list
+
+Tech Stack:
+Built with React and Vite, using Redux for state management, React Router for navigation, and Axios for communicating with the backend API.
+
+How It Works:
+The catalog and filters connect directly to a backend API that handles filtering and pagination, ensuring you always get the latest data without delays.
+
+Getting Started:
+
+# Clone the repository
+git clone <your-repo-url>
+
+# Install dependencies
+npm install
+
+# Run locally
+npm run dev
+
+# Build for production
+npm run build
+
+About Me:
+Hi! I’m Olga Ferubko, a Front-End Developer passionate about crafting intuitive and responsive user interfaces. I’m constantly leveling up my skills in JavaScript and React and enjoy writing clean, maintainable code.
+
+Feel free to connect with me:
+
+GitHub: [(https://github.com/olgaferubko)]
+
+Email: [ferubko.olga@gmail.com]
+
+LinkedIn: [(https://www.linkedin.com/in/olga-ferubko/)]
+
+Check it out:
+Deployed and live here: [(https://rental-car-project-eight.vercel.app/)]

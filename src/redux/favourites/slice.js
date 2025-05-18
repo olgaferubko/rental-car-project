@@ -3,19 +3,21 @@ import { createSlice } from "@reduxjs/toolkit";
 const favouritesSlice = createSlice({
   name: "favourites",
   initialState: {
-      cars: [],
+    cars: [],
   },
   reducers: {
     toggleFavourite: (state, action) => {
-      const car = action.payload;
-      if (!car || !car.id) return;
-    
+      const newCar = action.payload;
+      if (!newCar || !newCar.id) return;
 
-      const index = state.cars.findIndex(car => car?.id === car.id);
-      if (index !== -1) {
-        state.cars.splice(index, 1);
+      const existingIndex = state.cars.findIndex(car => car.id === newCar.id);
+
+      if (existingIndex !== -1) {
+        // Видалити, якщо вже є
+        state.cars.splice(existingIndex, 1);
       } else {
-        state.cars.push(car);
+        // Додати, якщо ще немає
+        state.cars.push(newCar);
       }
     },
   },
