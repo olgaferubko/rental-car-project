@@ -9,7 +9,8 @@
     line-height: 1.25;
     color: #101828;
     margin-bottom: 124px;
-    cursor: pointer
+    cursor: pointer;
+    background: #fff;
 }
 
 .loadMoreBtn:hover {

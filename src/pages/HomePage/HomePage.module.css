@@ -1,3 +1,6 @@
+.bgWrapper {
+    background: #fff;
+}
 .heading {
     font-family: "Manrope", sans-serif;
     font-weight: 700;
@@ -30,7 +33,8 @@
     line-height: 1.25;
     color: #fff;
     border: none;
-    cursor: pointer
+    cursor: pointer;
+    border-radius: 12px;
 }
 
 .viewBtn:hover {

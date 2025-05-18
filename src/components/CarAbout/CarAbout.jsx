@@ -16,7 +16,7 @@ const CarAbout = ({ car }) => {
                 <div className={s.addressWrapper}>
                     <IoLocationOutline />
                     <p className={s.address}>{car.address.split(', ').slice(1).join(', ')}</p>
-                    <p className={s.mileage}>Mileage: {car.mileage} km</p>
+                    <p className={s.mileage}>Mileage: {car.mileage.toLocaleString('en-US').replace(/,/g, ' ')} km</p>
                 </div>
             </div>
             <p className={s.price}>${car.rentalPrice}</p>

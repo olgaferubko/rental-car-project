@@ -77,6 +77,7 @@ const FilterPanel = ({ onSearch }) => {
               placeholder="Choose a price"
               styles={customSelectStyles}
               classNamePrefix="select"
+              classNames={styles.selectInput}
               value={priceOptions.find(opt => opt.value === field.value) || null}
               onChange={opt => field.onChange(opt?.value ?? null)}
             />

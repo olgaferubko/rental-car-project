@@ -109,7 +109,8 @@
     justify-content: center;
     flex-direction: row;
     margin-top: 28px;
-    cursor: pointer
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .readMore:hover {

@@ -5,6 +5,7 @@ import CarCatalogList from "../../components/CarCatalogList/CarCatalogList";
 import { selectIsLoading, selectPage } from '../../redux/cars/selectors';
 import { getAllCars, getCarsBrands } from '../../redux/cars/operations';
 import Header from "../../components/Header/Header";
+import s from "./CatalogPage.module.css";
 
 
 const CatalogPage = () => {
@@ -24,7 +25,9 @@ const CatalogPage = () => {
   return (
     <div>
       <Header />
+      <div className={s.wrapper}>
       <CarCatalogList />
+      </div>
     </div>
   );
 };
