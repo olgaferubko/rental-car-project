@@ -39,11 +39,11 @@ Hi! I’m Olga Ferubko, a Front-End Developer passionate about crafting intuitiv
 
 Feel free to connect with me:
 
-GitHub: [(https://github.com/olgaferubko)]
+GitHub: https://github.com/olgaferubko
 
-Email: [ferubko.olga@gmail.com]
+Email: ferubko.olga@gmail.com
 
-LinkedIn: [(https://www.linkedin.com/in/olga-ferubko/)]
+LinkedIn: https://www.linkedin.com/in/olga-ferubko/
 
 Check it out:
-Deployed and live here: [(https://rental-car-project-eight.vercel.app/)]
+Deployed and live here: https://rental-car-project-eight.vercel.app/
