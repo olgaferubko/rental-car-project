@@ -1,5 +1,5 @@
 # RentalCar
-What is RentalCar?
+## What is RentalCar?
 RentalCar is the frontend of a car rental web app designed to help users quickly find and book the perfect car. You can browse, filter by brand, price, and mileage, save favorites that stick around after refresh, and easily complete your booking.
 
 ## Key Features:
