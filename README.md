@@ -22,16 +22,16 @@ The catalog and filters connect directly to a backend API that handles filtering
 
 # Getting Started:
 
- Clone the repository
+ Clone the repository: 
 git clone <your-repo-url>
 
-Install dependencies
+Install dependencies: 
 npm install
 
-Run locally
+Run locally: 
 npm run dev
 
-Build for production
+Build for production: 
 npm run build
 
 # About Me:
