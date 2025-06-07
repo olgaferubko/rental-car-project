@@ -1,7 +1,7 @@
+import 'react-datepicker/dist/react-datepicker.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { bookingSchema } from '../../validation/bookingForm';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+import DatePickerField from '../DatePickerField/DatePickerField';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 
@@ -49,7 +49,7 @@ const BookingForm = () => {
             </div>
 
             <div className={s.inputGroup}>
-              <DatePicker
+              <DatePickerField
                 selected={values.date}
                 onChange={val => setFieldValue('date', val)}
                 placeholderText="Booking date*"
