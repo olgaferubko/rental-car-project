@@ -1,21 +1,18 @@
-import React from 'react';
+import { forwardRef } from 'react';
 import { Link } from 'react-router-dom';
 import s from './CatalogCarItem.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { IoIosHeartEmpty, IoIosHeart } from 'react-icons/io';
+
 import { toggleFavourite } from '../../redux/favourites/slice';
 import { selectFavourites } from '../../redux/favourites/selectors';
 
 
-const CarCard = ({ car }) => {
-  const dispatch = useDispatch();
-  const favorites = useSelector(selectFavourites);
+const CarCard = forwardRef(({ car }, ref) => {
+    const favourites = useSelector(selectFavourites);
+    const dispatch = useDispatch();
 
-  const isFavorite = favorites.some(fav => fav.id === car.id);
-
-  const handleFavoriteClick = () => {
-    dispatch(toggleFavourite(car));
-  };
+    const isFavourite = favourites.some(fav => fav.id === car.id);
 
   const {
     id,
@@ -30,15 +27,20 @@ const CarCard = ({ car }) => {
     address
   } = car;
 
+  const handleFavoriteClick = () => {
+    dispatch(toggleFavourite(car));
+  };
+
+
   const location = address?.split(', ').slice(1).join(' | ');
 
   return (
-    <div className={s.card}>
+    <li className={s.card} ref={ref}>
       <div className={s.imageWrapper}>
         <img src={img} alt={`${brand} ${model}`} className={s.image} />
 
         <button type="button" className={s.favBtn} onClick={handleFavoriteClick}>
-          {isFavorite ? (
+          {isFavourite ? (
             <IoIosHeart className={s.heartIconActive} />
           ) : (
             <IoIosHeartEmpty className={s.heartIcon} />
@@ -65,8 +67,8 @@ const CarCard = ({ car }) => {
       <Link className={s.readMore} to={`/catalog/${id}`}>
         Read more
       </Link>
-    </div>
+    </li>
   );
-};
+});
 
 export default CarCard;

@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 import { useEffect, useRef } from 'react';
-import toast from 'react-hot-toast';
 import CarCard from '../CatalogCarItem/CatalogCarItem';
 import LoadMore from '../LoadMore/LoadMore';
 import Loader from '../Loader/Loader';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import FilterPanel from '../FilterPanel/FilterPanel';
 import s from './CarCatalogList.module.css';
 
@@ -14,35 +14,38 @@ import {
 } from '../../redux/cars/selectors';
 
 const CarCatalogList = () => {
-  const cars = useSelector(selectAllCars);
-  const loading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
-
-  const topCardRef = useRef(null);
+    const cars = useSelector(selectAllCars);
+    const isLoading = useSelector(selectIsLoading);
+    const error = useSelector(selectError);
+    const firstCardRef = useRef(null);
 
   useEffect(() => {
-    if (cars.length > 12 && topCardRef.current) {
-      const cardHeight = topCardRef.current.getBoundingClientRect().height;
-      window.scrollBy({ top: cardHeight * 2, behavior: 'smooth' });
+    if (cars.length > 12 && firstCardRef.current) {
+      const { height: cardHeight } = firstCardRef.current.getBoundingClientRect();
+      window.scrollBy({
+        top: cardHeight * 2,
+        behavior: 'smooth',
+      });
     }
   }, [cars]);
 
-  useEffect(() => {
-    if (error) {
-      toast.error('Something went wrong while loading cars.');
-    }
-  }, [error]);
+      if (isLoading) return <Loader />;
 
-  if (loading) return <Loader />;
+  
+      if (error) {
+          return <ErrorMessage message="Something went wrong while loading cars, please reload the page" />;
+      }
+
+      if (cars.length === 0) {
+          return <ErrorMessage message="Oops, no cars found" />;
+      }
 
   return (
     <div className={s.wrapper}>
       <FilterPanel />
       <ul className={s.carsList}>
-        {cars.map((car, index) => (
-          <li key={car.id} ref={index === 0 ? topCardRef : null}>
-            <CarCard car={car} />
-          </li>
+        {cars.map((car, idx) => (
+            <CarCard key={`${car.id + idx}`} car={car} ref={idx === 0 ? firstCardRef : null} />
         ))}
       </ul>
       <LoadMore />

@@ -1,9 +1,10 @@
 .header {
     display: flex;
-    gap: 960px;
+    box-sizing: border-box;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     background: #f2f4f7;
+    padding: 0 120px;
 }
 .navList {
     display: flex;

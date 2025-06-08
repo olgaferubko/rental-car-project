@@ -1,11 +1,10 @@
 .container {
-    width: 488px;
+    max-width: 488px;
     margin-bottom: 68px;
     margin-top: 20px;
 }
 
 .wrapper {
-    width: 488px;
     height: 32px;
     display: flex;
     text-align: center;

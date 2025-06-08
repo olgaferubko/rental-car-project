@@ -1,112 +1,107 @@
 .filtersForm {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    gap: 16px;
-    margin-top: 84px;
-    margin-bottom: 56px;
-}
-
-.field {
+    margin-top: 68px;
+    margin-bottom: 40px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 0;
 }
+
 
 .label {
-    font-family: "Manrope", sans-serif;
+    margin-bottom: 8px;
+    display: block;
     font-weight: 400;
     font-size: 12px;
-    line-height: 1.33333;
-    color: #8d929a;
-    margin-bottom: 8px;
+    line-height: 1.33;
+    color: var(--gray);
 }
 
-.selectInput {
-    font-family: "Manrope", sans-serif;
-    width: 204px;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.25;
-    box-shadow: 0 4px 36px 0 rgba(0, 0, 0, 0.02);
-    background: #fff;
-    border: 1px solid #f7f7f7;
-    border-radius: 12px;
-}
-
-.mileage {
+.mileageInputs {
     display: flex;
-    
-}
-
-.mileageInput::placeholder {
-    color: #101828;
-}
-
-.mileageToInput::placeholder {
-    color: #101828;
-}
-
-.mileageInput {
-    font-family: "Manrope", sans-serif;
-    border-right: 1px solid #dadde1;
-    border-radius: 12px 0 0 12px;
-    width: 160px;
-    height: 44px;
-    background: #f7f7f7;
-    border: none;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.25;
-    padding: 0;
-    padding-left: 24px;
-    color: #101828;
-}
-
-.mileageToInput {
-    font-family: "Manrope", sans-serif;
-    border-right: 1px solid #dadde1;
-    border-radius: 0 12px 12px 0;
-    width: 160px;
-    height: 44px;
-    background: #f7f7f7;
-    border: none;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.25;
-    padding: 0;
-    padding-left: 24px;
-    color: #101828;
-}
-
-.mileageInput:focus {
-    outline: none;
-    border: 1px solid #3470ff;
-}
-
-.mileageToInput:focus {
-    outline: none;
-    border: 1px solid #3470ff;
-}
-.button {
     border-radius: 12px;
-    padding: 12px 51px;
-    width: 156px;
-    height: 44px;
-    cursor: pointer;
-    background: #3470ff;
-    font-family: "Manrope", sans-serif;
-    font-weight: 600;
+
+    overflow: hidden;
+}
+
+.mileageInputGroup {
+    max-width: 160px;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 12px 12px 0;
+    background-color: var(--inputs);
+
+    &:first-child {
+        border-right: 1px solid var(--gray-light);
+        border-radius: 12px 0 0 12px;
+    }
+}
+
+.mileageLabel {
+    margin-right: 4px;
+}
+
+.input {
+    font-weight: 500;
     font-size: 16px;
     line-height: 1.25;
-    color: #fff;
-    box-shadow: none;
+    color: #101828;
+    width: 70px;
     border: none;
-}
-
-.button:hover {
-  background: #0b44cd;
-}
-
-.button:focus {
     outline: none;
+    background-color: transparent;
+}
+
+.btnContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.button {
+    min-width: 156px;
+    height: 44px;
+    font-weight: 600;
+    color: var(--white);
+    background-color: var(--button);
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    transition: background-color var(--time) var(--cubic);
+
+    &:hover,
+    &:focus {
+        background-color: var(--button-hover);
+    }
+
+    &:disabled {
+        background-color: var(--gray-light);
+        cursor: not-allowed;
+    }
+}
+
+
+ @media screen and (min-width: 768px) {
+    .filtersForm {
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: row;
+
+    }
+    
+    .btnContainer {
+        align-self: flex-end;
+    }
+ }
+
+@media screen and (min-width: 1280px) {
+    .filtersForm {
+        padding: 16px;
+        align-items: end;
+        background-color: var(--white);
+    }
 }

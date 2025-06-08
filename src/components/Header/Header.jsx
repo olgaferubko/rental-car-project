@@ -1,30 +1,29 @@
+import { useLocation, Link } from 'react-router-dom';
+import clsx from 'clsx';
 import s from './Header.module.css';
-import { NavLink } from "react-router-dom";
-import clsx from "clsx";
-import { Link } from 'react-router-dom';
 
 const Header = () => {
-  const buildLinkClass = ({ isActive }) => {
-    return clsx(s.link, isActive && s.active);
+  const { pathname } = useLocation();
+
+  const buildLinkClass = (targetPath) => {
+    return clsx(s.link, pathname === targetPath && s.active);
   };
+
   return (
     <header className={s.header}>
       <Link to="/" className={s.logo}>
         <img src="/Logo.svg" alt="Rental Car Logo" />
       </Link>
       <nav className={s.navList}>
-        <NavLink to="/" className={buildLinkClass}>
+        <Link to="/" className={buildLinkClass('/')}>
           Home
-        </NavLink>
-        <NavLink to="/catalog" className={buildLinkClass}>
+        </Link>
+        <Link to="/catalog" className={buildLinkClass('/catalog')}>
           Catalog
-        </NavLink>
+        </Link>
       </nav>
     </header>
   );
 };
-
-
-
 
 export default Header;
