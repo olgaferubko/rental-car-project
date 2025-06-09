@@ -4,7 +4,6 @@ import CarCard from '../CatalogCarItem/CatalogCarItem';
 import LoadMore from '../LoadMore/LoadMore';
 import Loader from '../Loader/Loader';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
-import FilterPanel from '../FilterPanel/FilterPanel';
 import s from './CarCatalogList.module.css';
 
 import {
@@ -37,12 +36,11 @@ const CarCatalogList = () => {
       }
 
       if (cars.length === 0) {
-          return <ErrorMessage message="Oops, no cars found" />;
+          return <ErrorMessage message="Oops, no cars found. Please select other filters" />;
       }
 
   return (
     <div className={s.wrapper}>
-      <FilterPanel />
       <ul className={s.carsList}>
         {cars.map((car, idx) => (
             <CarCard key={`${car.id + idx}`} car={car} ref={idx === 0 ? firstCardRef : null} />

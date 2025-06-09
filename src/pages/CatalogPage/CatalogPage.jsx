@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import Loader from '../../components/Loader/Loader';
+import Header from "../../components/Header/Header";
+import FilterPanel from '../../components/FilterPanel/FilterPanel';
 import CarCatalogList from "../../components/CarCatalogList/CarCatalogList";
+
 import { selectIsLoading, selectPage } from '../../redux/cars/selectors';
 import { getAllCars, getCarsBrands } from '../../redux/cars/operations';
-import Header from "../../components/Header/Header";
 import { selectFilters } from '../../redux/filters/selectors';
 import { resetPage } from '../../redux/cars/slice';
 import s from "./CatalogPage.module.css";
@@ -43,6 +46,7 @@ const CatalogPage = () => {
   return (
     <div>
       <Header />
+      <FilterPanel />
       <div className={s.wrapper}>
       <CarCatalogList />
       </div>
