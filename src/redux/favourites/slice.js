@@ -13,10 +13,8 @@ const favouritesSlice = createSlice({
       const existingIndex = state.cars.findIndex(car => car.id === newCar.id);
 
       if (existingIndex !== -1) {
-        // Видалити, якщо вже є
         state.cars.splice(existingIndex, 1);
       } else {
-        // Додати, якщо ще немає
         state.cars.push(newCar);
       }
     },
